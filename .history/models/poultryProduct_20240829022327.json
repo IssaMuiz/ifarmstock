@@ -1,0 +1,22 @@
+[
+  {
+    "image": "/assets/images/poultry-image1-slider.jpg",
+    "name": "CHI frozen chicken",
+    "Price": "2500"
+  },
+  {
+    "image": "/assets/images/poultry-image2-slider.jpg",
+    "name": "Agrited live broiler",
+    "Price": "1800"
+  },
+  {
+    "image": "/assets/images/poultry-image5-slider.jpg",
+    "name": "Afrimash jumbo size eggs",
+    "Price": "4000"
+  },
+  {
+    "image": "/assets/images/poultry-image5-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": "2000"
+  }
+]

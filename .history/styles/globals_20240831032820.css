@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: gray #313131;
+}
+
+.bgColor {
+  background-color: rgb(5, 248, 5);
+}
+
+.text {
+  color: white;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
