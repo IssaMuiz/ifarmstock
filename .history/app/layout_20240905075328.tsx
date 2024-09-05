@@ -1,5 +1,6 @@
+import Navbar from "@/components/navbar";
 import "@/styles/globals.css";
-import ClientLayout from "@/components/clientLayout";
+
 export const metadata = {
   title: "Grow",
   description: "Livestock farming e-commerce application",
@@ -12,8 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Navbar />
       <body className="bg-gray-200 h-screen w-auto">
-        <ClientLayout>{children}</ClientLayout>
+        <section className="mb-5">{children}</section>
       </body>
     </html>
   );

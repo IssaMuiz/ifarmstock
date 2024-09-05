@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar";
 import "@/styles/globals.css";
 import ClientLayout from "@/components/clientLayout";
 export const metadata = {
@@ -13,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-200 h-screen w-auto">
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout className="mb-5">{children}</ClientLayout>
       </body>
     </html>
   );

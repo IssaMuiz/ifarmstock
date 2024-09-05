@@ -13,9 +13,9 @@ const Sidenav = () => {
       expanded: false,
       arrowIcon: "/assets/icons/arrow-icon--right.png",
       dropdownlink: [
-        { name: "Day Old Chicks", link: "/day-old-chicks" },
-        { name: "Matured Broilers", link: "/matured-broiler" },
-        { name: "Frozen Chicken", link: "/frozen-chickens" },
+        { name: "Day Old Chicks", link: "/" },
+        { name: "Matured Broilers", link: "/app/matured-broiler/page.tsx" },
+        { name: "Frozen Chicken", link: "/" },
       ],
     },
     {
