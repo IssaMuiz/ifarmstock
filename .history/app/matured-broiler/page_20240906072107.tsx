@@ -3,7 +3,7 @@ import Image from "next/image";
 import broiler from "@/models/broiler.json";
 import { useState } from "react";
 
-const MaturedBroiler = () => {
+const maturedBroiler = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const ProductsPerPage = 6;
 
@@ -17,27 +17,22 @@ const MaturedBroiler = () => {
 
   const totalPages = Math.ceil(broiler.length / ProductsPerPage);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0 });
-  };
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prevPage) => prevPage + 1);
-      scrollToTop();
     }
   };
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
       setCurrentPage((prevPage) => prevPage - 1);
-      scrollToTop();
     }
   };
 
   const handlePageClick = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    scrollToTop();
   };
 
   const getPagenumbers = () => {
@@ -195,10 +190,8 @@ const MaturedBroiler = () => {
           <button
             disabled={currentPage === 1}
             onClick={handlePrevPage}
-            className={`border p-3 text-base ${
-              currentPage === 1
-                ? " border-gray-300 text-gray-300 "
-                : "hover:border-green-600 "
+            className={`border p-3 hover:border-green-600 text-base ${
+              currentPage === 1 ? " text-gray-300 opacity-50" : ""
             }`}
           >
             Prev
@@ -208,10 +201,8 @@ const MaturedBroiler = () => {
               key={pageNumber}
               onClick={() => handlePageClick(pageNumber)}
               className={`${
-                pageNumber === currentPage
-                  ? "active bg-green-600 text cursor-pointer"
-                  : ""
-              } border border-gray-300 px-4 py-1 hover:border-green-600`}
+                pageNumber === currentPage ? "active bg-green-600 text " : ""
+              } border border-gray-300 px-4 py-1 hover:border-green-600 `}
             >
               {pageNumber}
             </button>
@@ -220,11 +211,7 @@ const MaturedBroiler = () => {
           <button
             disabled={currentPage === totalPages}
             onClick={handleNextPage}
-            className={`border p-3 text-base ${
-              currentPage === totalPages
-                ? " border-gray-300 text-gray-300 "
-                : "hover:border-green-600 cursor-pointer"
-            }`}
+            className="border p-3 hover:border-green-600 text-base"
           >
             Next
           </button>
@@ -234,4 +221,4 @@ const MaturedBroiler = () => {
   );
 };
 
-export default MaturedBroiler;
+export default maturedBroiler;

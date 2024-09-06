@@ -18,7 +18,7 @@ const MaturedBroiler = () => {
   const totalPages = Math.ceil(broiler.length / ProductsPerPage);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleNextPage = () => {

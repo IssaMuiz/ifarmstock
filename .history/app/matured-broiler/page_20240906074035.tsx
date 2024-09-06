@@ -3,7 +3,7 @@ import Image from "next/image";
 import broiler from "@/models/broiler.json";
 import { useState } from "react";
 
-const MaturedBroiler = () => {
+const maturedBroiler = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const ProductsPerPage = 6;
 
@@ -18,7 +18,7 @@ const MaturedBroiler = () => {
   const totalPages = Math.ceil(broiler.length / ProductsPerPage);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleNextPage = () => {
@@ -234,4 +234,4 @@ const MaturedBroiler = () => {
   );
 };
 
-export default MaturedBroiler;
+export default maturedBroiler;
