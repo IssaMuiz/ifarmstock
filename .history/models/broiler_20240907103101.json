@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/images/poultry-image1-slider.jpg",
+    "name": "CHI frozen chicken",
+    "Price": 2500,
+    "weight": "2.5kg",
+    "rating": "/assets/icons/rating-10.png",
+    "itemsLeft": "200",
+    "isBestSeller": "true",
+    "dateAdded": "2024-08-12"
+  },
+  {
+    "id": 2,
+    "image": "/assets/images/poultry-image2-slider.jpg",
+    "name": "Agrited live broiler",
+    "Price": 1800,
+    "weight": "3.2kg",
+    "rating": "/assets/icons/rating-20.png",
+    "itemsLeft": "320",
+    "isBestSeller": "false",
+    "dateAdded": "2024-09-15"
+  },
+  {
+    "id": 3,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Afrimash jumbo size eggs",
+    "Price": 4000,
+    "weight": "2kg",
+    "rating": "/assets/icons/rating-35.png",
+    "itemsLeft": "207",
+    "isBestSeller": "true",
+    "dateAdded": "2024-05-12"
+  },
+  {
+    "id": 4,
+    "image": "/assets/images/poultry-image4-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-45.png",
+    "itemsLeft": "382",
+    "isBestSeller": "true",
+    "dateAdded": "2024-08-22"
+  },
+  {
+    "id": 5,
+    "image": "/assets/images/poultry-image5-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-25.png",
+    "itemsLeft": "150",
+    "isBestSeller": "flase",
+    "dateAdded": "2024-10-12"
+  },
+  {
+    "id": 6,
+    "image": "/assets/images/poultry-image7-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": "2000",
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-10.png",
+    "itemsLeft": "493",
+    "isBestSeller": "false",
+    "dateAdded": "2024-08-16"
+  },
+  {
+    "id": 7,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": "2000",
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-07-10"
+  },
+  {
+    "id": 8,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-08-02"
+  },
+  {
+    "id": 9,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-04-12"
+  },
+  {
+    "id": 10,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "false",
+    "dateAdded": "2024-12-12"
+  },
+  {
+    "id": 11,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-06-12"
+  },
+  {
+    "id": 12,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "false",
+    "dateAdded": "2024-04-22"
+  },
+  {
+    "id": 13,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-09-12"
+  },
+  {
+    "id": 14,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-08-12"
+  },
+  {
+    "id": 15,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-07-02"
+  },
+  {
+    "id": 16,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-01-14"
+  },
+  {
+    "id": 17,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "false",
+    "dateAdded": "2024-08-13"
+  },
+  {
+    "id": 18,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "false",
+    "dateAdded": "2024-09-12"
+  },
+  {
+    "id": 19,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-03-12"
+  },
+  {
+    "id": 20,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Zartech old layers",
+    "Price": 2000,
+    "weight": "1.2kg",
+    "rating": "/assets/icons/rating-0.png",
+    "itemsLeft": "290",
+    "isBestSeller": "true",
+    "dateAdded": "2024-08-12"
+  }
+]
