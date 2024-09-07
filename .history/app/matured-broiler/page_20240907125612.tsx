@@ -23,7 +23,7 @@ const MaturedBroiler = () => {
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
   const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [selectedBrand, setSelectedBrand] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 10000]);
+  const [priceRange, setPriceRange] = useState([4000, 10000]);
   const [rating, setRating] = useState(0);
 
   const applyFiltered = () => {
@@ -157,74 +157,70 @@ const MaturedBroiler = () => {
     <section className="flex gap-5 mx-10 mt-20 h-auto">
       <div className="Left-side-sorting mobile:hidden tablet:flex flex-col bg-white p-3 w-[350px] rounded-md h-[700px]">
         <div className="flex flex-col gap-2 border-b border-gray-400 p-3 mb-3 pb-5">
-          <fieldset className="text-xl font-semibold">
-            <legend>Brand</legend>
-            {["CHI", "Afrimash", "Zartech", "Obasanjo", "Local-farmer"].map(
-              (brand) => (
-                <label key={brand} className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="brand"
-                    value={brand}
-                    checked={selectedBrand === brand}
-                    onChange={() => setSelectedBrand(brand)}
-                    className="mr-2"
-                  />{" "}
-                  {brand}
-                </label>
-              )
-            )}
-          </fieldset>
+          <h1 className="text-xl font-semibold">Brand</h1>
+          <div className="flex items-center gap-1">
+            <input id="Local-farmer" type="radio" name="brand" value="1" />
+            <label className="text-base ml-2" htmlFor="Local-farmer">
+              Local farmer
+            </label>
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="Agrited" type="radio" name="brand" value="2" />
+            <label className="text-base ml-2" htmlFor="Agrited">
+              Agrited
+            </label>
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="Chi" type="radio" name="brand" value="3" />
+            <label className="text-base ml-2" htmlFor="Chi">
+              Chi
+            </label>
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="Zartech" type="radio" name="brand" value="4" />
+            <label className="text-base ml-2" htmlFor="Zartech">
+              Zartech
+            </label>
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="Afrimash" type="radio" name="brand" value="5" />
+            <label className="text-base ml-2" htmlFor="Afrimash">
+              Afrimash
+            </label>
+          </div>
         </div>
         <div className="flex flex-col gap-2 border-b border-gray-400 p-3 mb-3 pb-5">
-          <fieldset className="text-xl font-semibold">
-            <legend>Price</legend>
-
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                name="price"
-                value="1000 - 3000"
-                checked={priceRange[0] === 1000 && priceRange[1] === 3000}
-                onChange={() => setPriceRange([1000, 3000])}
-                className="mr-2"
-              />
-              &#8358;1000 - &#8358;3000
+          <h1 className="text-xl font-semibold">Price</h1>
+          <div className="flex items-center gap-1">
+            <input id="1" type="radio" name="price" value="1" />
+            <label className="text-base ml-2" htmlFor="1">
+              under &#8358;4000
             </label>
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                name="price"
-                value="3000 - 5000"
-                checked={priceRange[0] === 3000 && priceRange[1] === 5000}
-                onChange={() => setPriceRange([3000, 5000])}
-                className="mr-2"
-              />
-              &#8358;3000 - &#8358;5000
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="2" type="radio" name="price" value="2" />
+            <label className="text-base ml-2" htmlFor="2">
+              &#8358;4000 - &#8358;10000
             </label>
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                name="price"
-                value="5000 - 8000"
-                checked={priceRange[0] === 5000 && priceRange[1] === 8000}
-                onChange={() => setPriceRange([5000, 8000])}
-                className="mr-2"
-              />
-              &#8358;5000 - &#8358;8000
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="3" type="radio" name="price" value="3" />
+            <label className="text-base ml-2" htmlFor="3">
+              &#8358;10000 - &#8358;15000
             </label>
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                name="price"
-                value="8000 - 10000"
-                checked={priceRange[0] === 8000 && priceRange[1] === 10000}
-                onChange={() => setPriceRange([8000, 10000])}
-                className="mr-2"
-              />
-              &#8358;8000 - &#8358;10000
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="4" type="radio" name="price" value="4" />
+            <label className="text-base ml-2" htmlFor="4">
+              &#8358;15000 - &#8358;20000
             </label>
-          </fieldset>
+          </div>
+          <div className="flex items-center gap-1">
+            <input id="5" type="radio" name="price" value="5" />
+            <label className="text-base ml-2" htmlFor="5">
+              &#8358;20000 - Above
+            </label>
+          </div>
         </div>
         <div className="flex flex-col gap-2 border-b border-gray-400 p-3 mb-3 pb-5">
           <h1 className="text-xl font-semibold">Product Rating</h1>
