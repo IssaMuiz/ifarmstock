@@ -23,7 +23,7 @@ const MaturedBroiler = () => {
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [priceRange, setPriceRange] = useState([0, 10000]);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(40);
   const productPerPage = 6;
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;

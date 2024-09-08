@@ -23,28 +23,28 @@ const MaturedBroiler = () => {
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [priceRange, setPriceRange] = useState([0, 10000]);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(50);
   const productPerPage = 6;
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
 
   const ratingImages = [
     {
-      value: 40,
-      img: "/assets/icons/rating-40.png",
+      value: 40, img: "/assets/icons/rating-40.png"
     },
     {
-      value: 30,
-      img: "/assets/icons/rating-30.png",
+      value: 30, img: "/assets/icons/rating-30.png",
     },
     {
-      value: 20,
-      img: "/assets/icons/rating-20.png",
+      value: 20, img: "/assets/icons/rating-20.png",
     },
     {
-      value: 10,
-      img: "/assets/icons/rating-10.png",
+      value: 10, img:  "/assets/icons/rating-10.png",
     },
+    
+    
+    
+   
   ];
 
   useEffect(() => {
@@ -244,28 +244,26 @@ const MaturedBroiler = () => {
           <fieldset className="text-xl font-semibold">
             <legend>Rating</legend>
             {ratingImages.map((rate) => (
-              <label
-                key={rate.value}
-                className="flex items-center gap-2 cursor-pointer"
-                onClick={() => setRating(rate.value)}
-              >
-                <input
-                  type="radio"
-                  name="rating"
-                  value={rate.value}
-                  checked={rating === rate.value}
-                  onChange={() => setRating(rate.value)}
-                  className="mr-2"
-                />
-                <Image
-                  src={rate.img}
-                  alt={`${rate.value} Star`}
-                  width={100}
-                  height={10}
-                  className="w-24 h-6"
-                />
-                & above
-              </label>
+              
+               
+                <label key={rate.value} className="flex items-center gap-2 cursor-pointer" onClick={() => setRating( "/assets/icons/rating-10.png",.value)}>
+                  <input
+                    type="radio"
+                    name="rating"
+                    value={rating.value}
+                    checked={rating === rating.value}
+                    onChange={() => setRating(rating.value)}
+                    className="mr-2"
+                  />
+                  <Image
+                    src={rating.img}
+                    alt={`${rating.value} Star`}
+                    width={100}
+                    height={10}
+                    className="w-24 h-6"
+                  />
+                  & above
+                </label>
             ))}
           </fieldset>
         </div>

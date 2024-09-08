@@ -17,53 +17,17 @@ interface ProductType {
 }
 
 const MaturedBroiler = () => {
-  const [products, setProducts] = useState<ProductType[]>(broiler);
+  const [products, setProducts] = useState<ProductType[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
+  const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [selectedBrand, setSelectedBrand] = useState("");
   const [priceRange, setPriceRange] = useState([0, 10000]);
   const [rating, setRating] = useState(0);
-  const productPerPage = 6;
-  const indexOfLastProduct = currentPage * productPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productPerPage;
 
-  const ratingImages = [
-    {
-      value: 40,
-      img: "/assets/icons/rating-40.png",
-    },
-    {
-      value: 30,
-      img: "/assets/icons/rating-30.png",
-    },
-    {
-      value: 20,
-      img: "/assets/icons/rating-20.png",
-    },
-    {
-      value: 10,
-      img: "/assets/icons/rating-10.png",
-    },
-  ];
-
-  useEffect(() => {
-    let filtered = [...broiler];
-
-    if (sortingSelected === "bestSellers") {
-      filtered = filtered.sort((a, b) =>
-        a.isBestSeller === b.isBestSeller ? 0 : a.isBestSeller ? -1 : 1
-      );
-    } else if (sortingSelected === "lowToHigh") {
-      filtered = filtered.sort((a, b) => a.Price - b.Price);
-    } else if (sortingSelected === "highToLow") {
-      filtered = filtered.sort((a, b) => b.Price - a.Price);
-    } else if (sortingSelected === "newest") {
-      filtered = filtered.sort(
-        (a, b) =>
-          new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime()
-      );
-    }
+  const applyFiltered = () => {
+    let filtered = products;
 
     if (priceRange) {
       filtered = filtered.filter(
@@ -78,22 +42,12 @@ const MaturedBroiler = () => {
       filtered = filtered.filter((product) => product.rating >= rating);
     }
 
-    const currentProducts = filtered.slice(
-      indexOfFirstProduct,
-      indexOfLastProduct
-    );
+    setFilteredProducts(filtered);
+  };
 
-    setProducts(currentProducts);
-  }, [
-    selectedBrand,
-    priceRange,
-    rating,
-    sortingSelected,
-    productPerPage,
-    currentPage,
-    indexOfFirstProduct,
-    indexOfLastProduct,
-  ]);
+  useEffect(() => {
+    applyFiltered();
+  }, [selectedBrand, priceRange, rating, products]);
 
   const sortingOptions = [
     { value: "lowToHigh", label: "Price: Low to High" },
@@ -106,7 +60,7 @@ const MaturedBroiler = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOptionChange = (e: any) => {
     setSortingSelected(e.target.value);
     setIsOpen(true);
   };
@@ -115,15 +69,47 @@ const MaturedBroiler = () => {
     sortingOptions.find((option) => option.value === sortingSelected)?.label ||
     "Selected";
 
+  const sortProducts = (
+    option: string,
+    products: ProductType[]
+  ): ProductType[] => {
+    let sortedProducts = [...products];
+    if (option === "bestSellers") {
+      sortedProducts = sortedProducts.sort((a, b) =>
+        a.isBestSeller === b.isBestSeller ? 0 : a.isBestSeller ? -1 : 1
+      );
+    } else if (option === "lowToHigh") {
+      sortedProducts = sortedProducts.sort((a, b) => a.Price - b.Price);
+    } else if (option === "highToLow") {
+      sortedProducts = sortedProducts.sort((a, b) => b.Price - a.Price);
+    } else if (option === "newest") {
+      sortedProducts = sortedProducts.sort(
+        (a, b) =>
+          new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime()
+      );
+    }
+    return sortedProducts;
+  };
+
+  useEffect(() => {
+    const sorted = sortProducts(sortingSelected, broiler);
+    setProducts(sorted);
+  }, [sortingSelected]);
+
   const handleSortChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSortingSelected(e.target.value);
   };
+  const ProductsPerPage = 6;
 
-  const handleLabelClick = (sortType: string) => {
-    setSortingSelected(sortType);
-  };
+  const indexOfLastProduct = currentPage * ProductsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - ProductsPerPage;
 
-  const totalPages = Math.ceil(broiler.length / productPerPage);
+  const currentProducts = broiler.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const totalPages = Math.ceil(broiler.length / ProductsPerPage);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0 });
@@ -241,33 +227,26 @@ const MaturedBroiler = () => {
           </fieldset>
         </div>
         <div className="flex flex-col gap-2 border-b border-gray-400 p-3 mb-3 pb-5">
-          <fieldset className="text-xl font-semibold">
-            <legend>Rating</legend>
-            {ratingImages.map((rate) => (
-              <label
-                key={rate.value}
-                className="flex items-center gap-2 cursor-pointer"
-                onClick={() => setRating(rate.value)}
-              >
-                <input
-                  type="radio"
-                  name="rating"
-                  value={rate.value}
-                  checked={rating === rate.value}
-                  onChange={() => setRating(rate.value)}
-                  className="mr-2"
-                />
-                <Image
-                  src={rate.img}
-                  alt={`${rate.value} Star`}
-                  width={100}
-                  height={10}
-                  className="w-24 h-6"
-                />
-                & above
-              </label>
-            ))}
-          </fieldset>
+          <div>
+            <fieldset className="text-xl font-semibold">
+              <legend>Brand</legend>
+              {["CHI", "Afrimash", "Zartech", "Obasanjo", "Local-farmer"].map(
+                (brand) => (
+                  <label key={brand} className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name="brand"
+                      value={brand}
+                      checked={selectedBrand === brand}
+                      onChange={() => setSelectedBrand(brand)}
+                      className="mr-2"
+                    />{" "}
+                    {brand}
+                  </label>
+                )
+              )}
+            </fieldset>
+          </div>
         </div>
       </div>
       <div className="Broiler-cards h-auto bg-white p-3 w-full rounded-md items-center ">
@@ -294,7 +273,9 @@ const MaturedBroiler = () => {
                 <div className="py-5 ">
                   {sortingOptions.map((option) => (
                     <label
-                      onClick={() => handleLabelClick(option.value)}
+                      onClick={() =>
+                        handleOptionChange({ target: { value: option.value } })
+                      }
                       key={option.value}
                       className="flex items-center px-4 py-2 cursor-pointer mb-4 text-gray-700 hover:text-gray-900"
                     >

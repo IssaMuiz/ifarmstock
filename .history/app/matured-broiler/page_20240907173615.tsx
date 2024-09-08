@@ -19,36 +19,38 @@ interface ProductType {
 const MaturedBroiler = () => {
   const [products, setProducts] = useState<ProductType[]>(broiler);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [productPerPage, setProductPerPage] = useState(6);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [priceRange, setPriceRange] = useState([0, 10000]);
   const [rating, setRating] = useState(0);
-  const productPerPage = 6;
+
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
 
   const ratingImages = [
-    {
-      value: 40,
-      img: "/assets/icons/rating-40.png",
-    },
-    {
-      value: 30,
-      img: "/assets/icons/rating-30.png",
-    },
-    {
-      value: 20,
-      img: "/assets/icons/rating-20.png",
-    },
-    {
-      value: 10,
-      img: "/assets/icons/rating-10.png",
-    },
+    "/assets/icons/rating-40.png",
+    "/assets/icons/rating-30.png",
+    "/assets/icons/rating-20.png",
+    "/assets/icons/rating-10.png",
   ];
 
-  useEffect(() => {
-    let filtered = [...broiler];
+  const applyFiltered = () => {
+    let filtered = broiler;
+
+    if (priceRange) {
+      filtered = filtered.filter(
+        (product) =>
+          product.Price >= priceRange[0] && product.Price <= priceRange[1]
+      );
+    }
+    if (selectedBrand) {
+      filtered = filtered.filter((product) => product.brand === selectedBrand);
+    }
+    if (rating > 0) {
+      filtered = filtered.filter((product) => product.rating >= rating);
+    }
 
     if (sortingSelected === "bestSellers") {
       filtered = filtered.sort((a, b) =>
@@ -65,35 +67,17 @@ const MaturedBroiler = () => {
       );
     }
 
-    if (priceRange) {
-      filtered = filtered.filter(
-        (product) =>
-          product.Price >= priceRange[0] && product.Price <= priceRange[1]
-      );
-    }
-    if (selectedBrand) {
-      filtered = filtered.filter((product) => product.brand === selectedBrand);
-    }
-    if (rating > 0) {
-      filtered = filtered.filter((product) => product.rating >= rating);
-    }
-
     const currentProducts = filtered.slice(
       indexOfFirstProduct,
       indexOfLastProduct
     );
 
     setProducts(currentProducts);
-  }, [
-    selectedBrand,
-    priceRange,
-    rating,
-    sortingSelected,
-    productPerPage,
-    currentPage,
-    indexOfFirstProduct,
-    indexOfLastProduct,
-  ]);
+  };
+
+  useEffect(() => {
+    applyFiltered();
+  }, [selectedBrand, priceRange, rating, sortingSelected, productPerPage]);
 
   const sortingOptions = [
     { value: "lowToHigh", label: "Price: Low to High" },
@@ -243,30 +227,29 @@ const MaturedBroiler = () => {
         <div className="flex flex-col gap-2 border-b border-gray-400 p-3 mb-3 pb-5">
           <fieldset className="text-xl font-semibold">
             <legend>Rating</legend>
-            {ratingImages.map((rate) => (
-              <label
-                key={rate.value}
-                className="flex items-center gap-2 cursor-pointer"
-                onClick={() => setRating(rate.value)}
-              >
-                <input
-                  type="radio"
-                  name="rating"
-                  value={rate.value}
-                  checked={rating === rate.value}
-                  onChange={() => setRating(rate.value)}
-                  className="mr-2"
-                />
-                <Image
-                  src={rate.img}
-                  alt={`${rate.value} Star`}
-                  width={100}
-                  height={10}
-                  className="w-24 h-6"
-                />
-                & above
-              </label>
-            ))}
+            {ratingImages.map((image, index) => {
+              const ratingValue = index + 1;
+              return (
+                <label key={ratingValue} className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="rating"
+                    value={ratingValue}
+                    checked={rating === ratingValue}
+                    onChange={() => setRating(ratingValue)}
+                    className="mr-2"
+                  />
+                  <Image
+                    src={image}
+                    alt={`${ratingValue} Star`}
+                    width={100}
+                    height={10}
+                    className="w-24 h-6"
+                  />{" "}
+                  & above
+                </label>
+              );
+            })}
           </fieldset>
         </div>
       </div>
