@@ -1,4 +1,5 @@
 "use client";
+
 import ProductSlider from "@/components/productSlider";
 import ClientLayout from "@/components/clientLayout";
 import NewArrivalsCards from "@/components/newArrivalsCards";

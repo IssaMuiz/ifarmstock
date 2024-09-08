@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import Footer from "@/components/footer";
 import ClientLayout from "@/components/clientLayout";
 export const metadata = {
   title: "iFarmStock",
@@ -15,7 +14,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-gray-200 h-screen w-auto">
         <ClientLayout>{children}</ClientLayout>
-        <Footer />
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ const BulkPurchasesCard = () => {
     <section>
       <div
         className="bgColor text w-full h-auto mt-10 tablet:text-3xl mobile:text-xl p-2 rounded-t-md font-semibold flex
-          justify-between px-3 items-center scrollbar"
+          justify-between px-3 items-center"
       >
         <p>Bulk purchases</p>
         <p className="text-xs cursor-pointer hover:underline">see all items</p>

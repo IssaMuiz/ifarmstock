@@ -12,9 +12,9 @@ const NewArrivalsCards = () => {
         <p className="text-xs cursor-pointer hover:underline">see all items</p>
       </div>
       <div className="bg-white h-auto w-auto tablet:p-4 mobile:p-1">
-        <ul className="flex overflow-x-auto space-x-4 p-4 scrollbar">
+        <div className="flex overflow-x-auto space-x-4 p-4">
           {sliceNewArrivals.map((product, index) => (
-            <li
+            <div
               key={index}
               className="flex shadow-md hover:shadow-xl hover:scale-[1.01] hover:transition-all hover:duration-300 hover:ease-in-out flex-col tablet:min-w-[200px] mobile:min-w-[160px] tablet:p-7 tablet:gap-3 mobile:p-2 mobile:gap-1 rounded-md cursor-pointer"
             >
@@ -43,9 +43,9 @@ const NewArrivalsCards = () => {
                 </div>
                 <div className="">{product.itemsLeft} Items left</div>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

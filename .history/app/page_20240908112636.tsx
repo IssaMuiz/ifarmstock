@@ -1,9 +1,11 @@
 "use client";
+
 import ProductSlider from "@/components/productSlider";
 import ClientLayout from "@/components/clientLayout";
 import NewArrivalsCards from "@/components/newArrivalsCards";
 import BulkPurchasesCards from "@/components/bulkPurchasesCards";
 import SeasonalCards from "@/components/seasonalCards";
+import Footer from "@/components/footer";
 
 const Home = () => {
   return (
@@ -19,6 +21,7 @@ const Home = () => {
           <SeasonalCards />
         </section>
       </main>
+      <Footer />
     </ClientLayout>
   );
 };

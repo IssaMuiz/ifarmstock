@@ -166,7 +166,7 @@ const MaturedBroiler = () => {
   };
 
   return (
-    <section className="flex gap-5 mobile:mx-2 tablet:mx-8 mt-20 h-auto">
+    <section className="flex gap-5 mx-10 mt-20 h-auto">
       <Filter
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
@@ -177,15 +177,13 @@ const MaturedBroiler = () => {
         ratingImages={ratingImages}
       />
       {products.length === 0 ? (
-        <div className="bg-white w-96 rounded-md h-56 flex flex-col items-center text-center mx-auto mt-20">
-          <p className="text-lg font-semibold pt-10">
-            This product search option is not available
-          </p>
-          <span>Please try other options</span>
+        <div className="bg-white w-72 rounded-md h-56 flex flex-col items-center text-center mx-auto">
+          <p className="text-lg font-semibold">The product is not available</p>
+          <span>Search for other options</span>
         </div>
       ) : (
         <div className="Broiler-cards h-auto bg-white p-3 w-full rounded-md items-center ">
-          <div className="flex mobile:hidden tablet:flex justify-between mx-10">
+          <div className="flex justify-between mx-10">
             <div>
               <h1 className="text-2xl ">Matured Live Broiler</h1>
             </div>

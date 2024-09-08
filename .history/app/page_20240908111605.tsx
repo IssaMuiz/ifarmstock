@@ -1,4 +1,5 @@
 "use client";
+
 import ProductSlider from "@/components/productSlider";
 import ClientLayout from "@/components/clientLayout";
 import NewArrivalsCards from "@/components/newArrivalsCards";
@@ -15,7 +16,15 @@ const Home = () => {
           <NewArrivalsCards />
 
           <BulkPurchasesCards />
-
+          <div
+            className="bgColor text w-full h-auto mt-10 tablet:text-3xl mobile:text-xl p-2 rounded-t-md font-semibold flex
+          justify-between px-3 items-center"
+          >
+            <p>Seasonal offers</p>
+            <p className="text-xs cursor-pointer hover:underline">
+              see all items
+            </p>
+          </div>
           <SeasonalCards />
         </section>
       </main>

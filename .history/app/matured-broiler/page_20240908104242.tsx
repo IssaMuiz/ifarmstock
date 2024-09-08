@@ -166,7 +166,7 @@ const MaturedBroiler = () => {
   };
 
   return (
-    <section className="flex gap-5 mobile:mx-2 tablet:mx-8 mt-20 h-auto">
+    <section className="flex gap-5 mx-10 mt-20 h-auto">
       <Filter
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
@@ -176,34 +176,34 @@ const MaturedBroiler = () => {
         setRating={setRating}
         ratingImages={ratingImages}
       />
-      {products.length === 0 ? (
-        <div className="bg-white w-96 rounded-md h-56 flex flex-col items-center text-center mx-auto mt-20">
-          <p className="text-lg font-semibold pt-10">
-            This product search option is not available
-          </p>
-          <span>Please try other options</span>
-        </div>
-      ) : (
-        <div className="Broiler-cards h-auto bg-white p-3 w-full rounded-md items-center ">
-          <div className="flex mobile:hidden tablet:flex justify-between mx-10">
-            <div>
-              <h1 className="text-2xl ">Matured Live Broiler</h1>
-            </div>
-
-            <Sorting
-              toggleDropdown={toggleDropdown}
-              selectedLabel={selectedLabel}
-              sortingOptions={sortingOptions}
-              isOpen={isOpen}
-              handleLabelClick={handleLabelClick}
-              sortingSelected={sortingSelected}
-              handleSortChange={handleSortChange}
-            />
+      <div className="Broiler-cards h-auto bg-white p-3 w-full rounded-md items-center ">
+        <div className="flex justify-between mx-10">
+          <div>
+            <h1 className="text-2xl ">Matured Live Broiler</h1>
           </div>
-          <div className="bg-white h-auto flex flex-col items-center w-auto tablet:p-4 mobile:p-1">
-            <ul className="grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1 p-4">
-              {products.map((product) => (
-                <li
+
+          <Sorting
+            toggleDropdown={toggleDropdown}
+            selectedLabel={selectedLabel}
+            sortingOptions={sortingOptions}
+            isOpen={isOpen}
+            handleLabelClick={handleLabelClick}
+            sortingSelected={sortingSelected}
+            handleSortChange={handleSortChange}
+          />
+        </div>
+        <div className="bg-white h-auto flex flex-col items-center w-auto tablet:p-4 mobile:p-1">
+          <div className="grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1 p-4">
+            {products.length === 0 ? (
+              <div className="bg-gray-300 w-full h-56 flex flex-col items-center mx-auto">
+                <p className="text-lg font-semibold">
+                  The product is not available
+                </p>
+                <span>Search for other options</span>
+              </div>
+            ) : (
+              products.map((product) => (
+                <div
                   key={product.id}
                   className="flex shadow-md hover:shadow-xl hover:scale-[1.01] hover:transition-all hover:duration-300 hover:ease-in-out flex-col tablet:min-w-[200px] mobile:min-w-[120px] tablet:p-7 tablet:gap-3 mobile:p-2 mobile:gap-1 rounded-md cursor-pointer"
                 >
@@ -243,10 +243,11 @@ const MaturedBroiler = () => {
                   >
                     Add To Cart
                   </button>
-                </li>
-              ))}
-            </ul>
-
+                </div>
+              ))
+            )}
+          </div>
+          <div className={`${products.length === 0 && "hidden"}`}>
             <Pagination
               currentPage={currentPage}
               handlePrevPage={handlePrevPage}
@@ -257,7 +258,7 @@ const MaturedBroiler = () => {
             />
           </div>
         </div>
-      )}
+      </div>
     </section>
   );
 };

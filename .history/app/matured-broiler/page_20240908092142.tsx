@@ -109,6 +109,11 @@ const MaturedBroiler = () => {
     setIsOpen((prev) => !prev);
   };
 
+  const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSortingSelected(e.target.value);
+    setIsOpen(true);
+  };
+
   const selectedLabel =
     sortingOptions.find((option) => option.value === sortingSelected)?.label ||
     "Selected";
@@ -166,7 +171,7 @@ const MaturedBroiler = () => {
   };
 
   return (
-    <section className="flex gap-5 mobile:mx-2 tablet:mx-8 mt-20 h-auto">
+    <section className="flex gap-5 mx-10 mt-20 h-auto">
       <Filter
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
@@ -176,88 +181,78 @@ const MaturedBroiler = () => {
         setRating={setRating}
         ratingImages={ratingImages}
       />
-      {products.length === 0 ? (
-        <div className="bg-white w-96 rounded-md h-56 flex flex-col items-center text-center mx-auto mt-20">
-          <p className="text-lg font-semibold pt-10">
-            This product search option is not available
-          </p>
-          <span>Please try other options</span>
-        </div>
-      ) : (
-        <div className="Broiler-cards h-auto bg-white p-3 w-full rounded-md items-center ">
-          <div className="flex mobile:hidden tablet:flex justify-between mx-10">
-            <div>
-              <h1 className="text-2xl ">Matured Live Broiler</h1>
-            </div>
-
-            <Sorting
-              toggleDropdown={toggleDropdown}
-              selectedLabel={selectedLabel}
-              sortingOptions={sortingOptions}
-              isOpen={isOpen}
-              handleLabelClick={handleLabelClick}
-              sortingSelected={sortingSelected}
-              handleSortChange={handleSortChange}
-            />
+      <div className="Broiler-cards h-auto bg-white p-3 w-full rounded-md items-center ">
+        <div className="flex justify-between mx-10">
+          <div>
+            <h1 className="text-2xl ">Matured Live Broiler</h1>
           </div>
-          <div className="bg-white h-auto flex flex-col items-center w-auto tablet:p-4 mobile:p-1">
-            <ul className="grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1 p-4">
-              {products.map((product) => (
-                <li
-                  key={product.id}
-                  className="flex shadow-md hover:shadow-xl hover:scale-[1.01] hover:transition-all hover:duration-300 hover:ease-in-out flex-col tablet:min-w-[200px] mobile:min-w-[120px] tablet:p-7 tablet:gap-3 mobile:p-2 mobile:gap-1 rounded-md cursor-pointer"
-                >
-                  <Image
-                    src={product.image}
-                    alt="poultry"
-                    width={150}
-                    height={100}
-                    className="h-full w-full"
-                  />
-                  <div className="text-md">
-                    <p className="line-clamp-2 mb-3">
-                      <span>{product.weight}</span> of{" "}
-                      <span>{product.brand}</span> {product.name}
-                    </p>
-                    <p className="font-semibold text-lg mb-3">
-                      &#8358;{product.Price}
-                      <span className="text-md font-extralight"> per kg</span>
-                    </p>
-                    <div className="mb-3">
-                      <Image
-                        src={`/assets/icons/rating-${product.rating}.png`}
-                        alt="rating-icon"
-                        width={100}
-                        height={60}
-                      />
-                    </div>
-                    <div className="">{product.itemsLeft} Items left</div>
-                    <div>
-                      {product.isBestSeller && <span>(Best Seller)</span>}
-                    </div>
-                    <div>Harvested on {product.dateAdded}</div>
+
+          <Sorting
+            toggleDropdown={toggleDropdown}
+            selectedLabel={selectedLabel}
+            sortingOptions={sortingOptions}
+            isOpen={isOpen}
+            handleLabelClick={handleLabelClick}
+            sortingSelected={sortingSelected}
+            handleSortChange={handleSortChange}
+          />
+        </div>
+        <div className="bg-white h-auto flex flex-col items-center w-auto tablet:p-4 mobile:p-1">
+          <ul className="grid desktop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1 p-4">
+            {products.map((product) => (
+              <li
+                key={product.id}
+                className="flex shadow-md hover:shadow-xl hover:scale-[1.01] hover:transition-all hover:duration-300 hover:ease-in-out flex-col tablet:min-w-[200px] mobile:min-w-[120px] tablet:p-7 tablet:gap-3 mobile:p-2 mobile:gap-1 rounded-md cursor-pointer"
+              >
+                <Image
+                  src={product.image}
+                  alt="poultry"
+                  width={150}
+                  height={100}
+                  className="h-full w-full"
+                />
+                <div className="text-md">
+                  <p className="line-clamp-2 mb-3">
+                    <span>{product.weight}</span> of{" "}
+                    <span>{product.brand}</span> {product.name}
+                  </p>
+                  <p className="font-semibold text-lg mb-3">
+                    &#8358;{product.Price}
+                    <span className="text-md font-extralight"> per kg</span>
+                  </p>
+                  <div className="mb-3">
+                    <Image
+                      src={`/assets/icons/rating-${product.rating}.png`}
+                      alt="rating-icon"
+                      width={100}
+                      height={60}
+                    />
                   </div>
-                  <button
-                    type="button"
-                    className="border w-full bg-green-600 hover:bg-green-700 text-white p-2 font-semibold rounded-md text-base"
-                  >
-                    Add To Cart
-                  </button>
-                </li>
-              ))}
-            </ul>
-
-            <Pagination
-              currentPage={currentPage}
-              handlePrevPage={handlePrevPage}
-              getPagenumbers={getPagenumbers}
-              handlePageClick={handlePageClick}
-              totalPages={totalPages}
-              handleNextPage={handleNextPage}
-            />
-          </div>
+                  <div className="">{product.itemsLeft} Items left</div>
+                  <div>
+                    {product.isBestSeller && <span>(Best Seller)</span>}
+                  </div>
+                  <div>Harvested on {product.dateAdded}</div>
+                </div>
+                <button
+                  type="button"
+                  className="border w-full bg-green-600 hover:bg-green-700 text-white p-2 font-semibold rounded-md text-base"
+                >
+                  Add To Cart
+                </button>
+              </li>
+            ))}
+          </ul>
+          <Pagination
+            currentPage={currentPage}
+            handlePrevPage={handlePrevPage}
+            getPagenumbers={getPagenumbers}
+            handlePageClick={handlePageClick}
+            totalPages={totalPages}
+            handleNextPage={handleNextPage}
+          />
         </div>
-      )}
+      </div>
     </section>
   );
 };

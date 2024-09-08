@@ -166,7 +166,7 @@ const MaturedBroiler = () => {
   };
 
   return (
-    <section className="flex gap-5 mobile:mx-2 tablet:mx-8 mt-20 h-auto">
+    <section className="flex gap-5 mx-10 mt-20 h-auto">
       <Filter
         selectedBrand={selectedBrand}
         setSelectedBrand={setSelectedBrand}
@@ -185,7 +185,7 @@ const MaturedBroiler = () => {
         </div>
       ) : (
         <div className="Broiler-cards h-auto bg-white p-3 w-full rounded-md items-center ">
-          <div className="flex mobile:hidden tablet:flex justify-between mx-10">
+          <div className="flex justify-between mx-10">
             <div>
               <h1 className="text-2xl ">Matured Live Broiler</h1>
             </div>

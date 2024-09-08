@@ -4,6 +4,7 @@
 
 .scrollbar {
   scrollbar-width: thin;
+  scrollbar-color: #b4b3b3 rgb(226, 225, 225);
 }
 
 .bgColor {

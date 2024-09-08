@@ -1,6 +1,8 @@
 "use client";
 import Navbar from "@/components/navbar";
 import Sidenav from "@/components/sidenav";
+import Footer from "@/components/footer";
+
 import { useState, createContext } from "react";
 
 export const SidebarContext = createContext({
@@ -30,6 +32,7 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
         className={`relative z-0 transition-all duration-300 ease-in-out `}
       >
         {children}
+        <footer />
       </section>
     </SidebarContext.Provider>
   );
