@@ -31,7 +31,7 @@ const MaturedBroiler = () => {
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [priceRange, setPriceRange] = useState<PriceType>([0, 10000]);
-  const [weightRange, setWeightRange] = useState<weightType>([0, 10]);
+  const [weightRandge, setWeightRange] = useState<weightType>([0, 20]);
   const [rating, setRating] = useState<number | null>(null);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -96,13 +96,6 @@ const MaturedBroiler = () => {
             product.Price >= priceRange[0] && product.Price <= priceRange[1]
         );
       }
-
-      if (weightRange) {
-        filtered = filtered.filter(
-          (product) =>
-            product.weight >= weightRange[0] && product.weight <= weightRange[1]
-        );
-      }
       if (selectedBrand) {
         filtered = filtered.filter(
           (product) => product.brand === selectedBrand
@@ -129,7 +122,6 @@ const MaturedBroiler = () => {
 
     filteredProducts();
   }, [
-    weightRange,
     selectedBrand,
     priceRange,
     rating,
@@ -171,14 +163,6 @@ const MaturedBroiler = () => {
       setPriceRange([0, 10000]);
     } else {
       setPriceRange(range);
-    }
-  };
-
-  const toggleWeight = (range: weightType) => {
-    if (weightRange?.[0] === range?.[0] && weightRange?.[1] === range?.[1]) {
-      setWeightRange([0, 10000]);
-    } else {
-      setWeightRange(range);
     }
   };
 
@@ -251,11 +235,9 @@ const MaturedBroiler = () => {
           resetFilter={resetFilter}
           togglePrice={togglePrice}
           toggleBrand={toggleBrand}
-          toggleWeight={toggleWeight}
           toggleRating={toggleRating}
           selectedBrand={selectedBrand}
           priceRange={priceRange}
-          weightRange={weightRange}
           rating={rating}
           ratingImages={ratingImages}
         />
@@ -370,12 +352,10 @@ const MaturedBroiler = () => {
                   <Filter
                     resetFilter={resetFilter}
                     togglePrice={togglePrice}
-                    toggleWeight={toggleWeight}
                     toggleBrand={toggleBrand}
                     toggleRating={toggleRating}
                     selectedBrand={selectedBrand}
                     priceRange={priceRange}
-                    weightRange={weightRange}
                     rating={rating}
                     ratingImages={ratingImages}
                   />
@@ -421,8 +401,7 @@ const MaturedBroiler = () => {
                     />
                     <div className="text-md">
                       <p className="line-clamp-2 mb-3">
-                        <span>{product.weight}kg</span>
-                        <span className="mr-1">of</span>
+                        <span>{product.weight}</span> of{" "}
                         <span>{product.brand}</span> {product.name}
                       </p>
                       <p className="font-semibold text-lg mb-3">

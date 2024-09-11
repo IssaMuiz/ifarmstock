@@ -31,7 +31,7 @@ const MaturedBroiler = () => {
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [priceRange, setPriceRange] = useState<PriceType>([0, 10000]);
-  const [weightRange, setWeightRange] = useState<weightType>([0, 10]);
+  const [weightRange, setWeightRange] = useState<weightType>([0, 20]);
   const [rating, setRating] = useState<number | null>(null);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -98,10 +98,7 @@ const MaturedBroiler = () => {
       }
 
       if (weightRange) {
-        filtered = filtered.filter(
-          (product) =>
-            product.weight >= weightRange[0] && product.weight <= weightRange[1]
-        );
+        filtered = filtered.filter((product) => product.weight >= weightRange[0] &&  product.weight <= weightRange[1])
       }
       if (selectedBrand) {
         filtered = filtered.filter(
@@ -180,7 +177,7 @@ const MaturedBroiler = () => {
     } else {
       setWeightRange(range);
     }
-  };
+  }
 
   const toggleSortDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -421,8 +418,7 @@ const MaturedBroiler = () => {
                     />
                     <div className="text-md">
                       <p className="line-clamp-2 mb-3">
-                        <span>{product.weight}kg</span>
-                        <span className="mr-1">of</span>
+                        <span>{product.weight}kg</span> of
                         <span>{product.brand}</span> {product.name}
                       </p>
                       <p className="font-semibold text-lg mb-3">

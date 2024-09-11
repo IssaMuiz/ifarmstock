@@ -421,8 +421,7 @@ const MaturedBroiler = () => {
                     />
                     <div className="text-md">
                       <p className="line-clamp-2 mb-3">
-                        <span>{product.weight}kg</span>
-                        <span className="mr-1">of</span>
+                        <span>{product.weight}kg</span> of
                         <span>{product.brand}</span> {product.name}
                       </p>
                       <p className="font-semibold text-lg mb-3">
