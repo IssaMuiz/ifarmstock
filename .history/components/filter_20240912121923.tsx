@@ -217,6 +217,8 @@ const Filter: React.FC<FilterProps> = ({
                 width={50}
                 height={10}
                 className="w-16 h-4"
+                fill
+                objectFit="contain"
               />
               & above
             </label>

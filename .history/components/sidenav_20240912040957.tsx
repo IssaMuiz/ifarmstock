@@ -103,7 +103,7 @@ const Sidenav = () => {
                         className="hover:bg-gray-300"
                         key={index}
                       >
-                        <Link href={dropdown.link} prefetch={false}>
+                        <Link href={dropdown.link}>
                           <div className="p-3 text-md ">{dropdown.name}</div>
                         </Link>
                       </div>

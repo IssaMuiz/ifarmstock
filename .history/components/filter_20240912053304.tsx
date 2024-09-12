@@ -5,24 +5,25 @@ interface ratingImageProps {
   img: string;
 }
 
+type PriceType = [min: number, max: number] | null;
 type weightType = [number, number] | null;
 interface FilterProps {
-  priceRange: number[][];
   showWeightFilter?: boolean;
   resetFilter: () => void;
-  togglePrice: (range: number[]) => void;
+  togglePrice: (range: PriceType) => void;
   toggleWeight: (range: weightType) => void;
   toggleRating: (rate: number) => void;
   toggleBrand: (brand: string) => void;
   selectedBrand: string | null;
   ratingImages: ratingImageProps[];
-  selectedPriceRange: number[] | null;
+  priceRange: PriceType;
   weightRange: weightType;
   rating: number | null;
+  setPriceRange: PriceType;
 }
 
 const Filter: React.FC<FilterProps> = ({
-  selectedPriceRange,
+  setPriceRange,
   showWeightFilter,
   toggleWeight,
   toggleBrand,
@@ -34,6 +35,15 @@ const Filter: React.FC<FilterProps> = ({
   rating,
   ratingImages,
 }) => {
+  const handlePriceChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const newRange = [...priceRange];
+
+    newRange[index] = Number(e.target.value);
+    setPriceRange(newRange as [number, number]);
+  };
   return (
     <section className="Left-side-sorting relative flex-col bg-white p-3 mobile:w-full tablet:w-[250px] text-left rounded-md mobile:h-full tablet:max-h-[900px]">
       <div
@@ -72,18 +82,14 @@ const Filter: React.FC<FilterProps> = ({
       <div className="flex flex-col gap-2 border-b border-gray-400 p-3 mb-3 pb-5">
         <fieldset className="text-base">
           <legend className="text-lg font-semibold mb-2">Price</legend>
-          {priceRange.map((range, index) => (
+          {priceRange?.map((range, index) => (
             <label
               key={index}
               className="flex items-center gap-2 mb-2 cursor-pointer w-max"
             >
               <div
                 className={`w-2 h-2 mr-2 relative p-2 rounded-full border-2 hover:border-green-600 ${
-                  !!(
-                    selectedPriceRange &&
-                    selectedPriceRange[0] === range[0] &&
-                    selectedPriceRange[1] === range[1]
-                  )
+                  priceRange?.[0] === 1000 && priceRange?.[1] === 3000
                     ? "border-green-600 bg-green-600"
                     : "border-gray-400"
                 }`}
@@ -91,18 +97,12 @@ const Filter: React.FC<FilterProps> = ({
               <input
                 type="checkbox"
                 name="priceRange"
-                value={`${range[0]} - ${range[1]}`}
-                checked={
-                  !!(
-                    selectedPriceRange &&
-                    selectedPriceRange[0] === range[0] &&
-                    selectedPriceRange[1] === range[1]
-                  )
-                }
-                onChange={() => togglePrice(range)}
+                value={`${range.min} - ${range.min}`}
+                checked={priceRange?.[0] === 1000 && priceRange?.[1] === 3000}
+                onChange={() => togglePrice([1000, 3000])}
                 className="mr-2 hidden"
               />
-              &#8358;{range[0]} - &#8358;{range[1]}
+              &#8358;1000 - &#8358;3000
             </label>
           ))}
         </fieldset>
@@ -124,7 +124,7 @@ const Filter: React.FC<FilterProps> = ({
                 type="checkbox"
                 name="weight"
                 value="0 - 2"
-                checked={weightRange?.[0] === 0 && weightRange?.[1] === 2}
+                checked={priceRange?.[0] === 0 && priceRange?.[1] === 2}
                 onChange={() => toggleWeight([0, 2])}
                 className="mr-2 hidden"
               />

@@ -99,7 +99,7 @@ const Filter: React.FC<FilterProps> = ({
                     selectedPriceRange[1] === range[1]
                   )
                 }
-                onChange={() => togglePrice(range)}
+                onClick={() => togglePrice(range)}
                 className="mr-2 hidden"
               />
               &#8358;{range[0]} - &#8358;{range[1]}

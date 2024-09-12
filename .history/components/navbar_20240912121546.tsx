@@ -78,6 +78,8 @@ const Navbar = () => {
               alt="cart-icon"
               width={30}
               height={20}
+              fill
+              objectFit="contain"
             />
             <p className="bg-white h-5 w-5 rounded-full text-black absolute left-7 bottom-7 text-center font-semibold">
               10
@@ -117,6 +119,8 @@ const Navbar = () => {
                 alt="cart-icon"
                 width={25}
                 height={15}
+                fill
+                objectFit="contain"
               />
               <p className="bg-white h-5 w-5 rounded-full text-black absolute left-3 bottom-3 text-center font-semibold">
                 10

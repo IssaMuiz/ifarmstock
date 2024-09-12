@@ -1,27 +1,27 @@
 "use client";
 import Image from "next/image";
-import broiler from "@/models/broiler.json";
+import dayOldBroilers from "@/models/dayOldBroilers.json";
 import React, { useEffect, useState } from "react";
 import Sorting from "@/components/sorting";
 import Filter from "@/components/filter";
 import Pagination from "@/components/pagination";
+
 interface ProductType {
   id: number;
   image: string;
   name: string;
   Price: number;
-  weight: number;
   rating: number;
-  itemsLeft: string;
+  itemsLeft: number;
   isBestSeller: boolean;
   dateAdded: string;
   brand: string;
 }
 
-type PriceType = [number, number] | null;
+type PriceType = [min: number, max: number] | null;
 type weightType = [number, number] | null;
 
-const MaturedBroiler = () => {
+const DayOldBroilers = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -30,7 +30,7 @@ const MaturedBroiler = () => {
   const [isFilteredOpen, setIsFilteredOpen] = useState(false);
   const [sortingSelected, setSortingSelected] = useState<string>("bestSellers");
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
-  const [priceRange, setPriceRange] = useState<PriceType>([0, 10000]);
+  const [priceRange, setPriceRange] = useState<PriceType>([200, 1000]);
   const [weightRange, setWeightRange] = useState<weightType>([0, 10]);
   const [rating, setRating] = useState<number | null>(null);
   const [totalPages, setTotalPages] = useState(0);
@@ -70,10 +70,13 @@ const MaturedBroiler = () => {
     "Selected";
 
   useEffect(() => {
+    setProducts(dayOldBroilers);
+  }, []);
+  useEffect(() => {
     const filteredProducts = () => {
       setLoading(true);
 
-      let filtered = [...broiler];
+      let filtered = [...dayOldBroilers];
 
       if (sortingSelected === "bestSellers") {
         filtered = filtered.sort((a, b) =>
@@ -97,12 +100,6 @@ const MaturedBroiler = () => {
         );
       }
 
-      if (weightRange) {
-        filtered = filtered.filter(
-          (product) =>
-            product.weight >= weightRange[0] && product.weight <= weightRange[1]
-        );
-      }
       if (selectedBrand) {
         filtered = filtered.filter(
           (product) => product.brand === selectedBrand
@@ -129,6 +126,7 @@ const MaturedBroiler = () => {
 
     filteredProducts();
   }, [
+    products,
     weightRange,
     selectedBrand,
     priceRange,
@@ -248,6 +246,7 @@ const MaturedBroiler = () => {
     <section className="flex gap-5 tablet:mx-8 tablet:mt-20 mobile:mt-24">
       <div className="mobile:hidden tablet:flex">
         <Filter
+          showWeightFilter={false}
           resetFilter={resetFilter}
           togglePrice={togglePrice}
           toggleBrand={toggleBrand}
@@ -276,7 +275,7 @@ const MaturedBroiler = () => {
       ) : (
         <div>
           <div className="text-center h-20 mobile:block tablet:hidden text-2xl mt-8 fixed top-16 left-0 z-10 right-0 text-black bg-white">
-            <p className="mt-6">Mature Live Broiler</p>
+            <p className="mt-6">Day Old Broilers</p>
             {/* Mobile view Sort and Filter button */}
             <div className="flex justify-evenly text-black mt-2 bg-white text-lg p-2 border-b-4 border-t-4">
               <div
@@ -368,6 +367,7 @@ const MaturedBroiler = () => {
                   </div>
 
                   <Filter
+                    showWeightFilter={false}
                     resetFilter={resetFilter}
                     togglePrice={togglePrice}
                     toggleWeight={toggleWeight}
@@ -389,7 +389,7 @@ const MaturedBroiler = () => {
             <div className="flex justify-between mx-10 tablet:flex mobile:hidden ">
               <div>
                 <h1 className="desktop:text-2xl tablet:text-lg ">
-                  Matured Live Broiler
+                  Day Old Broilers
                 </h1>
               </div>
 
@@ -421,13 +421,14 @@ const MaturedBroiler = () => {
                     />
                     <div className="text-md">
                       <p className="line-clamp-2 mb-3">
-                        <span>{product.weight}kg</span>
-                        <span className="mr-1">of</span>
                         <span>{product.brand}</span> {product.name}
                       </p>
                       <p className="font-semibold text-lg mb-3">
                         &#8358;{product.Price}
-                        <span className="text-md font-extralight"> per kg</span>
+                        <span className="text-md font-extralight">
+                          {" "}
+                          per one
+                        </span>
                       </p>
                       <div className="mb-3">
                         <Image
@@ -469,4 +470,4 @@ const MaturedBroiler = () => {
   );
 };
 
-export default MaturedBroiler;
+export default DayOldBroilers;

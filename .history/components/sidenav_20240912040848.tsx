@@ -15,7 +15,7 @@ const Sidenav = () => {
       dropdownlink: [
         { name: "Day Old Broilers", link: "/day-old-broilers" },
         { name: "Matured Live Broilers", link: "/matured-live-broilers" },
-        { name: "Bulk Purchases Broilers", link: "/broilers-bulk-purchases" },
+        { name: "Bulk Purchases Broilers", link: "/Broilers-bulk-purchases" },
       ],
     },
     {
@@ -103,7 +103,7 @@ const Sidenav = () => {
                         className="hover:bg-gray-300"
                         key={index}
                       >
-                        <Link href={dropdown.link} prefetch={false}>
+                        <Link href={dropdown.link}>
                           <div className="p-3 text-md ">{dropdown.name}</div>
                         </Link>
                       </div>

@@ -115,8 +115,8 @@ const Navbar = () => {
               <Image
                 src="/assets/icons/cart.png"
                 alt="cart-icon"
-                width={25}
-                height={15}
+                fill
+                objectFit="contain"
               />
               <p className="bg-white h-5 w-5 rounded-full text-black absolute left-3 bottom-3 text-center font-semibold">
                 10

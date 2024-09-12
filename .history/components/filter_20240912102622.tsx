@@ -79,11 +79,9 @@ const Filter: React.FC<FilterProps> = ({
             >
               <div
                 className={`w-2 h-2 mr-2 relative p-2 rounded-full border-2 hover:border-green-600 ${
-                  !!(
-                    selectedPriceRange &&
-                    selectedPriceRange[0] === range[0] &&
-                    selectedPriceRange[1] === range[1]
-                  )
+                  selectedPriceRange &&
+                  selectedPriceRange[0] === range[0] &&
+                  selectedPriceRange[1]
                     ? "border-green-600 bg-green-600"
                     : "border-gray-400"
                 }`}
@@ -91,15 +89,14 @@ const Filter: React.FC<FilterProps> = ({
               <input
                 type="checkbox"
                 name="priceRange"
-                value={`${range[0]} - ${range[1]}`}
+                onClick={() => togglePrice(range)}
+                value={`range-${index}`}
                 checked={
-                  !!(
-                    selectedPriceRange &&
-                    selectedPriceRange[0] === range[0] &&
-                    selectedPriceRange[1] === range[1]
-                  )
+                  selectedPriceRange &&
+                  selectedPriceRange[0] === range[0] &&
+                  selectedPriceRange[1]
                 }
-                onChange={() => togglePrice(range)}
+                onChange={() => togglePrice([1000, 3000])}
                 className="mr-2 hidden"
               />
               &#8358;{range[0]} - &#8358;{range[1]}

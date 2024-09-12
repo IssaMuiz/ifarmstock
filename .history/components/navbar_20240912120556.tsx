@@ -117,6 +117,7 @@ const Navbar = () => {
                 alt="cart-icon"
                 width={25}
                 height={15}
+                layout="responsive"
               />
               <p className="bg-white h-5 w-5 rounded-full text-black absolute left-3 bottom-3 text-center font-semibold">
                 10

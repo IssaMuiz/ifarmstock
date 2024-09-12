@@ -135,6 +135,7 @@ const Navbar = () => {
             </div>
             <div className="h-[37px] w-10 bg-green-600 pt-2 pl-2 rounded-r-md cursor-pointer">
               <Image
+                className=""
                 src="/assets/icons/search.png"
                 alt="search-icon"
                 width={20}

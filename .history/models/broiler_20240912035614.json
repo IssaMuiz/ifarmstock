@@ -90,7 +90,7 @@
     "Price": 2000,
     "weight": 1.2,
     "rating": 10,
-    "itemsLeft": 290,
+    "itemsLeft": "290",
     "isBestSeller": true,
     "dateAdded": "2024-08-02",
     "brand": "Local-farmer"

@@ -91,6 +91,7 @@ const Filter: React.FC<FilterProps> = ({
               <input
                 type="checkbox"
                 name="priceRange"
+                onClick={() => togglePrice(range)}
                 value={`${range[0]} - ${range[1]}`}
                 checked={
                   !!(
@@ -99,7 +100,7 @@ const Filter: React.FC<FilterProps> = ({
                     selectedPriceRange[1] === range[1]
                   )
                 }
-                onChange={() => togglePrice(range)}
+                onChange={() => togglePrice([1000, 3000])}
                 className="mr-2 hidden"
               />
               &#8358;{range[0]} - &#8358;{range[1]}

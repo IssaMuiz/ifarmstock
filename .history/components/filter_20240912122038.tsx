@@ -214,9 +214,9 @@ const Filter: React.FC<FilterProps> = ({
               <Image
                 src={rate.img}
                 alt={`${rate.value} Star`}
-                width={50}
-                height={10}
                 className="w-16 h-4"
+                fill
+                objectFit="contain"
               />
               & above
             </label>
