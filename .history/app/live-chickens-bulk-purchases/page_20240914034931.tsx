@@ -1,26 +1,35 @@
 "use client";
 import Image from "next/image";
-import dayOldBroilers from "@/public/models/dayOldBroilers.json";
+import livechickens from "@/public/models/liveChickensBulkPurchases.json";
 import React, { useEffect, useState } from "react";
 import Sorting from "@/components/sorting";
 import Filter from "@/components/filter";
 import Pagination from "@/components/pagination";
 
+interface DiscountType {
+  minWeight: number;
+  maxWeight: number | null;
+  discount: number;
+}
+
 interface ProductType {
   id: number;
   image: string;
   name: string;
-  Price: number;
+  price: number;
+  weight: number;
   rating: number;
   itemsLeft: number;
   isBestSeller: boolean;
   dateAdded: string;
   brand: string;
+  minimum: number;
+  discountTiers: DiscountType[];
 }
 
 type weightType = [number, number] | null;
 
-const DayOldBroilers = () => {
+const MaturedBroiler = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -38,17 +47,18 @@ const DayOldBroilers = () => {
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
 
-  const dayOldChicksPriceRange = [
-    [200, 300],
-    [400, 500],
-    [600, 700],
-    [800, 1000],
-  ];
   const sortingOptions = [
     { value: "lowToHigh", label: "Price: Low to High" },
     { value: "highToLow", label: "Price: High to low" },
     { value: "newest", label: "Newest Arrivals" },
     { value: "bestSellers", label: "Best Sellers" },
+  ];
+
+  const liveChickensPriceRange = [
+    [1000, 2000],
+    [3000, 5000],
+    [6000, 8000],
+    [9000, 10000],
   ];
 
   const ratingImages = [
@@ -70,28 +80,72 @@ const DayOldBroilers = () => {
     },
   ];
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch("/models/liveChickensBulkPurchases.json").then(
+        (res) => res.json()
+      );
+
+      setProducts(data);
+
+      console.log(data);
+    };
+    fetchData();
+  }, []);
+
+  const calculateDiscountPrice = (
+    product: ProductType,
+    weight: number
+  ): number => {
+    const basePrice = product.price * weight;
+    let discount = 0;
+
+    for (const discountTiers of product.discountTiers) {
+      console.log(
+        discountTiers.minWeight,
+        discountTiers.maxWeight,
+        discountTiers.discount
+      );
+      if (
+        weight >= discountTiers.minWeight &&
+        (discountTiers.maxWeight === null || weight <= discountTiers.maxWeight!)
+      ) {
+        discount = discountTiers.discount;
+        break;
+      }
+    }
+
+    const discountedPrice = basePrice * (1 - discount / 100);
+    return discountedPrice;
+  };
+
+  const product = products.find((p) => p.id === 1);
+  if (product) {
+    const weight = 420;
+
+    const price = calculateDiscountPrice(product, weight);
+
+    console.log(`Total Price for ${weight}kg: ${price}`);
+  }
+
   const selectedLabel =
     sortingOptions.find((option) => option.value === sortingSelected)?.label ||
     "Selected";
 
   useEffect(() => {
-    setProducts(dayOldBroilers);
-  }, []);
-
-  useEffect(() => {
     const filteredProducts = () => {
       setLoading(true);
 
-      let filtered = [...dayOldBroilers];
+      let filtered = [...livechickens];
 
       if (sortingSelected === "bestSellers") {
         filtered = filtered.sort((a, b) =>
           a.isBestSeller === b.isBestSeller ? 0 : a.isBestSeller ? -1 : 1
         );
       } else if (sortingSelected === "lowToHigh") {
-        filtered = filtered.sort((a, b) => a.Price - b.Price);
+        filtered = filtered.sort((a, b) => a.price - b.price);
       } else if (sortingSelected === "highToLow") {
-        filtered = filtered.sort((a, b) => b.Price - a.Price);
+        filtered = filtered.sort((a, b) => b.price - a.price);
       } else if (sortingSelected === "newest") {
         filtered = filtered.sort(
           (a, b) =>
@@ -102,10 +156,16 @@ const DayOldBroilers = () => {
       if (priceRange) {
         filtered = filtered.filter(
           (product) =>
-            product.Price >= priceRange[0] && product.Price <= priceRange[1]
+            product.price >= priceRange[0] && product.price <= priceRange[1]
         );
       }
 
+      if (weightRange) {
+        filtered = filtered.filter(
+          (product) =>
+            product.weight >= weightRange[0] && product.weight <= weightRange[1]
+        );
+      }
       if (selectedBrand) {
         filtered = filtered.filter(
           (product) => product.brand === selectedBrand
@@ -127,7 +187,6 @@ const DayOldBroilers = () => {
         indexOfLastProduct
       );
       setProducts(currentProducts);
-
       setLoading(false);
     };
 
@@ -250,8 +309,8 @@ const DayOldBroilers = () => {
     <section className="flex gap-5 tablet:mx-8 tablet:mt-20 mobile:mt-24">
       <div className="mobile:hidden tablet:flex">
         <Filter
-          priceRange={dayOldChicksPriceRange}
-          showWeightFilter={false}
+          priceRange={liveChickensPriceRange}
+          showWeightFilter={true}
           resetFilter={resetFilter}
           togglePrice={togglePrice}
           toggleBrand={toggleBrand}
@@ -280,7 +339,7 @@ const DayOldBroilers = () => {
       ) : (
         <div>
           <div className="text-center h-20 mobile:block tablet:hidden text-2xl mt-8 fixed top-16 left-0 z-10 right-0 text-black bg-white">
-            <p className="mt-6">Day Old Broilers</p>
+            <p className="mt-6">Live Chickens Bulk Purchases</p>
             {/* Mobile view Sort and Filter button */}
             <div className="flex justify-evenly text-black mt-2 bg-white text-lg p-2 border-b-4 border-t-4">
               <div
@@ -372,8 +431,8 @@ const DayOldBroilers = () => {
                   </div>
 
                   <Filter
-                    priceRange={dayOldChicksPriceRange}
-                    showWeightFilter={false}
+                    priceRange={liveChickensPriceRange}
+                    showWeightFilter={true}
                     resetFilter={resetFilter}
                     togglePrice={togglePrice}
                     toggleWeight={toggleWeight}
@@ -395,7 +454,7 @@ const DayOldBroilers = () => {
             <div className="flex justify-between mx-10 tablet:flex mobile:hidden ">
               <div>
                 <h1 className="desktop:text-2xl tablet:text-lg ">
-                  Day Old Broilers
+                  Live Chickens Bulk Purchases
                 </h1>
               </div>
 
@@ -427,14 +486,13 @@ const DayOldBroilers = () => {
                     />
                     <div className="text-md">
                       <p className="line-clamp-2 mb-3">
+                        <span>{product.weight}kg</span>
+                        <span className="mx-1">of</span>
                         <span>{product.brand}</span> {product.name}
                       </p>
                       <p className="font-semibold text-lg mb-3">
-                        &#8358;{product.Price}
-                        <span className="text-md font-extralight">
-                          {" "}
-                          per one
-                        </span>
+                        &#8358;{product.price}
+                        <span className="text-md font-extralight"> per kg</span>
                       </p>
                       <div className="mb-3">
                         <Image
@@ -444,12 +502,13 @@ const DayOldBroilers = () => {
                           height={60}
                         />
                       </div>
-                      <div className="">{product.itemsLeft} Items left</div>
+                      <div className="">{product.itemsLeft} birds left</div>
                       <div>
                         {product.isBestSeller && <span>(Best Seller)</span>}
                       </div>
-                      <div>Harvested on {product.dateAdded}</div>
+                      <div>Added on {product.dateAdded}</div>
                     </div>
+                    <div>Minimun order: {product.minimum} birds</div>
                     <button
                       type="button"
                       className="border w-full bg-green-600 hover:bg-green-700 text-white p-2 font-semibold rounded-md text-base"
@@ -476,4 +535,4 @@ const DayOldBroilers = () => {
   );
 };
 
-export default DayOldBroilers;
+export default MaturedBroiler;
