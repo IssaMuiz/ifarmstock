@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "Local-farmer",
+    "price": 2000,
+    "weight": 2,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": false,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 200,
+        "maxWeight": 400,
+        "discount": 5
+      },
+      {
+        "minWeight": 402,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "image": "/assets/images/poultry-image4-slider.jpg",
+    "name": "Old layers",
+    "brand": "Local-farmer",
+    "price": 3000,
+    "weight": 2.2,
+    "minimum": 50,
+    "itemsLeft": 1000,
+    "rating": 20,
+    "isBestSeller": true,
+    "dateAdded": "12-10-2024",
+    "discountTiers": [
+      {
+        "minWeight": 220,
+        "maxWeight": 440,
+        "discount": 5
+      },
+      {
+        "minWeight": 442,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "/assets/images/poultry-image2-slider.jpg",
+    "name": "Matured Live broiler",
+    "brand": "Local-farmer",
+    "price": 2500,
+    "weight": 2.5,
+    "minimum": 50,
+    "itemsLeft": 400,
+    "rating": 40,
+    "isBestSeller": false,
+    "dateAdded": "2-03-2024",
+    "discountTiers": [
+      {
+        "minWeight": 250,
+        "maxWeight": 450,
+        "discount": 5
+      },
+      {
+        "minWeight": 452,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "Local-farmer",
+    "price": 3000,
+    "weight": 3,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": true,
+    "dateAdded": "22-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 300,
+        "maxWeight": 600,
+        "discount": 5
+      },
+      {
+        "minWeight": 602,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "Local-farmer",
+    "price": 2000,
+    "weight": 2,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": false,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 200,
+        "maxWeight": 400,
+        "discount": 5
+      },
+      {
+        "minWeight": 402,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Cokerel",
+    "brand": "CHI",
+    "price": 2200,
+    "weight": 2,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 50,
+    "isBestSeller": false,
+    "dateAdded": "04-02-2024",
+    "discountTiers": [
+      {
+        "minWeight": 200,
+        "maxWeight": 400,
+        "discount": 5
+      },
+      {
+        "minWeight": 402,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "image": "/assets/images/poultry-image6-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "Agrited",
+    "price": 4000,
+    "weight": 3,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": true,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 300,
+        "maxWeight": 600,
+        "discount": 5
+      },
+      {
+        "minWeight": 602,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Live broiler",
+    "brand": "Afrimash",
+    "price": 1800,
+    "weight": 2,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": true,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 200,
+        "maxWeight": 400,
+        "discount": 5
+      },
+      {
+        "minWeight": 402,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "image": "/assets/images/poultry-image2-slider.jpg",
+    "name": "Matured Live broiler",
+    "brand": "Zartech",
+    "price": 3000,
+    "weight": 2.5,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": false,
+    "dateAdded": "22-09-2024",
+    "discountTiers": [
+      {
+        "minWeight": 250,
+        "maxWeight": 500,
+        "discount": 5
+      },
+      {
+        "minWeight": 502,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "CHI",
+    "price": 4000,
+    "weight": 2.8,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": false,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 280,
+        "maxWeight": 480,
+        "discount": 5
+      },
+      {
+        "minWeight": 482,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "image": "/assets/images/poultry-image5-slider.jpg",
+    "name": "Old layers",
+    "brand": "Local-farmer",
+    "price": 2000,
+    "weight": 2.1,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 10,
+    "isBestSeller": false,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 210,
+        "maxWeight": 410,
+        "discount": 5
+      },
+      {
+        "minWeight": 412,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "image": "/assets/images/poultry-image1-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "Local-farmer",
+    "price": 2000,
+    "weight": 3,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": false,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 300,
+        "maxWeight": 600,
+        "discount": 5
+      },
+      {
+        "minWeight": 602,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "Zartech",
+    "price": 2000,
+    "weight": 2,
+    "minimum": 50,
+    "itemsLeft": 700,
+    "rating": 30,
+    "isBestSeller": true,
+    "dateAdded": "05-11-2024",
+    "discountTiers": [
+      {
+        "minWeight": 200,
+        "maxWeight": 400,
+        "discount": 5
+      },
+      {
+        "minWeight": 402,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Matured broiler",
+    "brand": "Afrimash",
+    "price": 2500,
+    "weight": 2.5,
+    "minimum": 50,
+    "itemsLeft": 800,
+    "rating": 20,
+    "isBestSeller": true,
+    "dateAdded": "24-10-2024",
+    "discountTiers": [
+      {
+        "minWeight": 250,
+        "maxWeight": 450,
+        "discount": 5
+      },
+      {
+        "minWeight": 402,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Old layers",
+    "brand": "Local-farmer",
+    "price": 2000,
+    "weight": 2.9,
+    "minimum": 50,
+    "itemsLeft": 900,
+    "rating": 30,
+    "isBestSeller": false,
+    "dateAdded": "30-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 290,
+        "maxWeight": 490,
+        "discount": 5
+      },
+      {
+        "minWeight": 492,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "image": "/assets/images/poultry-image2-slider.jpg",
+    "name": "Matured Live broiler",
+    "brand": "Local-farmer",
+    "price": 2000,
+    "weight": 2,
+    "minimum": 50,
+    "itemsLeft": 500,
+    "rating": 10,
+    "isBestSeller": false,
+    "dateAdded": "02-05-2024",
+    "discountTiers": [
+      {
+        "minWeight": 200,
+        "maxWeight": 400,
+        "discount": 5
+      },
+      {
+        "minWeight": 402,
+        "maxWeight": 900,
+        "discount": 10
+      },
+      {
+        "minWeight": 902,
+        "maxWeight": null,
+        "discount": 15
+      }
+    ]
+  }
+]
