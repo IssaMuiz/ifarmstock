@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 500,
+    "rating": 10,
+    "itemsLeft": 200,
+    "isBestSeller": true,
+    "dateAdded": "2024-08-12",
+    "brand": "Agrited"
+  },
+  {
+    "id": 2,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 450,
+    "rating": 20,
+    "itemsLeft": 320,
+    "isBestSeller": false,
+    "dateAdded": "2024-09-15",
+    "brand": "CHI"
+  },
+  {
+    "id": 3,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 400,
+    "rating": 30,
+    "itemsLeft": 207,
+    "isBestSeller": true,
+    "dateAdded": "2024-05-12",
+    "brand": "Afrimash"
+  },
+  {
+    "id": 4,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 40,
+    "itemsLeft": 382,
+    "isBestSeller": true,
+    "dateAdded": "2024-08-22",
+    "brand": "Afrimash"
+  },
+  {
+    "id": 5,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 500,
+    "rating": 20,
+    "itemsLeft": 150,
+    "isBestSeller": false,
+    "dateAdded": "2024-10-12",
+    "brand": "Agrited"
+  },
+  {
+    "id": 6,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 10,
+    "itemsLeft": 493,
+    "isBestSeller": false,
+    "dateAdded": "2024-08-16",
+    "brand": "CHI"
+  },
+  {
+    "id": 7,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 10,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-07-10",
+    "brand": "Obasanjo"
+  },
+  {
+    "id": 8,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 400,
+    "rating": 10,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-08-02",
+    "brand": "Zartech"
+  },
+  {
+    "id": 9,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 400,
+    "rating": 20,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-04-12",
+    "brand": "Zartech"
+  },
+  {
+    "id": 10,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 30,
+    "itemsLeft": 290,
+    "isBestSeller": false,
+    "dateAdded": "2024-12-12",
+    "brand": "Zartech"
+  },
+  {
+    "id": 11,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 200,
+    "rating": 50,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-06-12",
+    "brand": "Obasanjo"
+  },
+  {
+    "id": 12,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 20,
+    "itemsLeft": 290,
+    "isBestSeller": false,
+    "dateAdded": "2024-04-22",
+    "brand": "Agrited"
+  },
+  {
+    "id": 13,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 500,
+    "rating": 30,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-09-12",
+    "brand": "CHI"
+  },
+  {
+    "id": 14,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 40,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-08-12",
+    "brand": "Afrimash"
+  },
+  {
+    "id": 15,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 30,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-07-02",
+    "brand": "Obasanjo"
+  },
+  {
+    "id": 16,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 500,
+    "rating": 20,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-01-14",
+    "brand": "Afrimash"
+  },
+  {
+    "id": 17,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 400,
+    "rating": 30,
+    "itemsLeft": 290,
+    "isBestSeller": false,
+    "dateAdded": "2024-08-13",
+    "brand": "CHI"
+  },
+  {
+    "id": 18,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 50,
+    "itemsLeft": 290,
+    "isBestSeller": false,
+    "dateAdded": "2024-09-12",
+    "brand": "Zartech"
+  },
+  {
+    "id": 19,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 300,
+    "rating": 0,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-03-12",
+    "brand": "Agrited"
+  },
+  {
+    "id": 20,
+    "image": "/assets/images/poultry-image3-slider.jpg",
+    "name": "Day old broilers",
+    "Price": 200,
+    "rating": 0,
+    "itemsLeft": 290,
+    "isBestSeller": true,
+    "dateAdded": "2024-08-12",
+    "brand": "Zartech"
+  }
+]
