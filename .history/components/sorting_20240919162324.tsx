@@ -1,37 +1,39 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
+interface sortingOptionTypes {
+  value: string;
+  label: string;
+}
 interface sortingType {
   toggleDropdown: () => void;
+  selectedLabel: string;
+  sortingOptions: sortingOptionTypes[];
   isOpen: boolean;
   handleLabelClick: (sortType: string) => void;
+  sortingSelected: string;
   handleSortChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isSortOpen: boolean;
-  onSortChange: (value: string) => void;
+
+  onSortChange: (sortOption: string) => void;
 }
 
 const Sorting: React.FC<sortingType> = ({
   isSortOpen,
   toggleDropdown,
+  selectedLabel,
   isOpen,
   handleLabelClick,
+  sortingSelected,
+
   onSortChange,
 }) => {
-  const [sortingSelected, setSortingSelected] = useState<string>("bestSeller");
   const sortingOptions = [
     { value: "lowToHigh", label: "Price: Low to High" },
     { value: "highToLow", label: "Price: High to low" },
     { value: "newest", label: "Newest Arrivals" },
-    { value: "bestSeller", label: "Best Sellers" },
+    { value: "bestSellers", label: "Best Sellers" },
   ];
-
-  const selectedLabel =
-    sortingOptions.find((option) => option.value === sortingSelected)?.label ||
-    "Selected";
-
-  useEffect(() => {
-    onSortChange(sortingSelected);
-  }, []);
 
   const handleSortChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

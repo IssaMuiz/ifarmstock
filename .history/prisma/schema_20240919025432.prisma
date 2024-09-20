@@ -20,10 +20,10 @@ category String
 image String
 price Int
 quantity Int
-weight Int?
+weight String?
 rating Int
 itemLeft Int
-soldCount Int
+isBestSeller Boolean
 hatchDate DateTime?
 dateAdded DateTime @default(now())
 brand String

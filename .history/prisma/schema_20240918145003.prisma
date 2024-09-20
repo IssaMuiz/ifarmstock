@@ -10,23 +10,33 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("MONGODB_URL")
+  url      = env("DATABASE_URL")
 }
 
-model Product {
+model MaturedLiveBroilers {
 id  String @id @default(auto())  @map("_id") @db.ObjectId
 name String
-category String
 image String
 price Int
-quantity Int
-weight Int?
+weight String
 rating Int
 itemLeft Int
-soldCount Int
-hatchDate DateTime?
-dateAdded DateTime @default(now())
+isBestSeller Boolean
+dateAdded String
 brand String
-minimum Int
-discountTier Json
+
 }
+model DayOldBroilers {
+id  String @id @default(auto())  @map("_id") @db.ObjectId
+name String
+image String
+price Int
+rating Int
+itemLeft Int
+isBestSeller Boolean
+dateAdded String
+brand String
+
+}
+
+

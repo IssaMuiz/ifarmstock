@@ -6,7 +6,7 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
-  onPageChange,
+  onPageChange
   totalPages,
 }) => {
   const visiblePage = 3;

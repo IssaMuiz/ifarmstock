@@ -1,63 +1,73 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
+import { queryObjects } from "v8";
 
-interface ratingImageProps {
-  value: number;
-  img: string;
-}
-
-type weightType = [number, number] | null;
 interface FilterProps {
-  priceRange: number[][];
-  showWeightFilter?: boolean;
-  resetFilter: () => void;
-  togglePrice: (range: number[]) => void;
-  toggleWeight: (range: weightType) => void;
-  toggleRating: (rate: number) => void;
-  toggleBrand: (brand: string) => void;
-  selectedBrand: string | null;
-  ratingImages: ratingImageProps[];
-  selectedPriceRange: number[] | null;
-  weightRange: weightType;
-  rating: number | null;
+  hideWeightFilter?: boolean;
+  category: string;
+  onFilterchange: (filters: any) => void;
 }
 
 const Filter: React.FC<FilterProps> = ({
-  selectedPriceRange,
-  showWeightFilter,
-  toggleWeight,
-  toggleBrand,
-  togglePrice,
-  toggleRating,
-  selectedBrand,
-  priceRange,
-  weightRange,
-  rating,
-  ratingImages,
+  hideWeightFilter,
+  onFilterchange,
+  category,
 }) => {
-  const [minPrice, setMinPrice] = useState<number | undefined>();
-  const [maxPrice, setMaxPrice] = useState<number | undefined>();
-  const [minWeight, setMinWeight] = useState<number | undefined>();
-  const [maxWeight, setMaxWeight] = useState<number | undefined>();
+  const [filter, setFilter] = useState({
+    brand: "",
+    weight: "",
+    rating: "",
+    price: "",
+  });
 
-  const router = useRouter();
-  const { category } = router.query;
-
-  const handleFilter = () => {
-    let filterQuery = `/app/api/products?category=${category}`;
-    if (minPrice) filterQuery += `&minPrice=${minPrice}`;
-    if (maxPrice) filterQuery += `&maxPrice=${maxPrice}`;
-    if (minWeight && category === "Matured Live Broiler") {
-      filterQuery += `&minWeight=${minWeight}`;
-    }
-    if (maxWeight && category === "Matured Live Broiler") {
-      filterQuery += `&maxWeight=${maxWeight}`;
-    }
-    fetch(filterQuery);
+  const priceRanges =
+    category === "day-old-chicks"
+      ? [
+          {
+            label: "200 -300",
+            value: "100-200",
+          },
+          {
+            label: "400 -500",
+            value: "400-500",
+          },
+          {
+            label: "600 -700",
+            value: "600-700",
+          },
+          {
+            label: "800 -1000",
+            value: "800-1000",
+          },
+        ]
+      : [
+          {
+            label: "1000 -2000",
+            value: "1000-2000",
+          },
+          {
+            label: "3000 -5000",
+            value: "3000-5000",
+          },
+          {
+            label: "6000 -8000",
+            value: "6000-8000",
+          },
+          {
+            label: "9000 -10000",
+            value: "9000-10000",
+          },
+        ];
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFilter({ ...filter, [name]: value });
   };
+
   return (
-    <section className="Left-side-sorting relative flex-col bg-white p-3 mobile:w-full tablet:w-[250px] text-left rounded-md mobile:h-full tablet:max-h-[900px]">
+    <form className="Left-side-sorting relative flex-col bg-white p-3 mobile:w-full tablet:w-[250px] text-left rounded-md mobile:h-full tablet:max-h-[900px]">
       <div
         className="flex flex-col gap-2 border-b border-gray-400 p-3 mb-3 pb-5 text-left
       "
@@ -72,7 +82,7 @@ const Filter: React.FC<FilterProps> = ({
               >
                 <div
                   className={`w-2 h-2 mr-2 relative p-2 rounded-full border-2 hover:border-green-600 ${
-                    selectedBrand === brand
+                    filter.brand === brand
                       ? "border-green-600 bg-green-600"
                       : "border-gray-400"
                   }`}
@@ -81,8 +91,8 @@ const Filter: React.FC<FilterProps> = ({
                   type="checkbox"
                   name="brand"
                   value={brand}
-                  checked={selectedBrand === brand}
-                  onChange={() => toggleBrand(brand)}
+                  checked={filter.brand === brand}
+                  onChange={handleChange}
                   className="mr-2 hidden"
                 />
                 <span>{brand}</span>
@@ -245,7 +255,7 @@ const Filter: React.FC<FilterProps> = ({
           ))}
         </fieldset>
       </div>
-    </section>
+    </form>
   );
 };
 

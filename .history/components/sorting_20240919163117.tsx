@@ -1,20 +1,29 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+interface sortingOptionTypes {
+  value: string;
+  label: string;
+}
 interface sortingType {
   toggleDropdown: () => void;
+  selectedLabel: string;
+  sortingOptions: sortingOptionTypes[];
   isOpen: boolean;
   handleLabelClick: (sortType: string) => void;
   handleSortChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isSortOpen: boolean;
-  onSortChange: (value: string) => void;
+
+  onSortChange: (sortOption: string) => void;
 }
 
 const Sorting: React.FC<sortingType> = ({
   isSortOpen,
   toggleDropdown,
+  selectedLabel,
   isOpen,
   handleLabelClick,
+
   onSortChange,
 }) => {
   const [sortingSelected, setSortingSelected] = useState<string>("bestSeller");
@@ -24,10 +33,6 @@ const Sorting: React.FC<sortingType> = ({
     { value: "newest", label: "Newest Arrivals" },
     { value: "bestSeller", label: "Best Sellers" },
   ];
-
-  const selectedLabel =
-    sortingOptions.find((option) => option.value === sortingSelected)?.label ||
-    "Selected";
 
   useEffect(() => {
     onSortChange(sortingSelected);

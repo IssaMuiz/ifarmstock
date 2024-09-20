@@ -1,61 +1,25 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
+import { queryObjects } from "v8";
 
-interface ratingImageProps {
-  value: number;
-  img: string;
-}
-
-type weightType = [number, number] | null;
 interface FilterProps {
-  priceRange: number[][];
-  showWeightFilter?: boolean;
-  resetFilter: () => void;
-  togglePrice: (range: number[]) => void;
-  toggleWeight: (range: weightType) => void;
-  toggleRating: (rate: number) => void;
-  toggleBrand: (brand: string) => void;
-  selectedBrand: string | null;
-  ratingImages: ratingImageProps[];
-  selectedPriceRange: number[] | null;
-  weightRange: weightType;
-  rating: number | null;
+  hideWeightFilter?: boolean;
 }
 
-const Filter: React.FC<FilterProps> = ({
-  selectedPriceRange,
-  showWeightFilter,
-  toggleWeight,
-  toggleBrand,
-  togglePrice,
-  toggleRating,
-  selectedBrand,
-  priceRange,
-  weightRange,
-  rating,
-  ratingImages,
-}) => {
-  const [minPrice, setMinPrice] = useState<number | undefined>();
-  const [maxPrice, setMaxPrice] = useState<number | undefined>();
-  const [minWeight, setMinWeight] = useState<number | undefined>();
-  const [maxWeight, setMaxWeight] = useState<number | undefined>();
-
+const Filter: React.FC<FilterProps> = ({ hideWeightFilter }) => {
   const router = useRouter();
-  const { category } = router.query;
+  const { query } = router;
 
-  const handleFilter = () => {
-    let filterQuery = `/app/api/products?category=${category}`;
-    if (minPrice) filterQuery += `&minPrice=${minPrice}`;
-    if (maxPrice) filterQuery += `&maxPrice=${maxPrice}`;
-    if (minWeight && category === "Matured Live Broiler") {
-      filterQuery += `&minWeight=${minWeight}`;
-    }
-    if (maxWeight && category === "Matured Live Broiler") {
-      filterQuery += `&maxWeight=${maxWeight}`;
-    }
-    fetch(filterQuery);
+  const handleRangeChange = (type: string, range: [number, number]) => {
+    const newQuery = { ...query, [type]: `${range[0]}- ${range[1]}` };
+
+    router.push({
+      pathname: router.pathname,
+      query: newQuery,
+    });
   };
+
   return (
     <section className="Left-side-sorting relative flex-col bg-white p-3 mobile:w-full tablet:w-[250px] text-left rounded-md mobile:h-full tablet:max-h-[900px]">
       <div

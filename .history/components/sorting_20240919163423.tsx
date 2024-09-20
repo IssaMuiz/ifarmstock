@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 interface sortingType {
   toggleDropdown: () => void;
+  selectedLabel: string;
   isOpen: boolean;
   handleLabelClick: (sortType: string) => void;
   handleSortChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -13,6 +14,7 @@ interface sortingType {
 const Sorting: React.FC<sortingType> = ({
   isSortOpen,
   toggleDropdown,
+  selectedLabel,
   isOpen,
   handleLabelClick,
   onSortChange,
@@ -24,10 +26,6 @@ const Sorting: React.FC<sortingType> = ({
     { value: "newest", label: "Newest Arrivals" },
     { value: "bestSeller", label: "Best Sellers" },
   ];
-
-  const selectedLabel =
-    sortingOptions.find((option) => option.value === sortingSelected)?.label ||
-    "Selected";
 
   useEffect(() => {
     onSortChange(sortingSelected);
